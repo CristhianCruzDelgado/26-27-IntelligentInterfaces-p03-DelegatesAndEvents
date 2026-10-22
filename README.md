@@ -168,3 +168,17 @@ player navigation when steering toward humanoids and shield targets.
 As a result, making the cube a fully dynamic physical entity transforms rigid 
 collisions into realistic impulse interactions, requiring precise velocity 
 management while retaining event-driven notifications across the scene.
+
+## Other information
+
+This code was developed by 
+* [Cristhian Adoney Cruz Delgado](https://github.com/CristhianCruzDelgado)
+
+Contact emails 
+* <alu0101648293@ull.edu.es>
+
+This code was designed for Intelligent Interfaces, \
+signature of the Computer Engineering degree, \
+that is studied at the Univeridad de La Laguna.
+
+_23 October 2026_
