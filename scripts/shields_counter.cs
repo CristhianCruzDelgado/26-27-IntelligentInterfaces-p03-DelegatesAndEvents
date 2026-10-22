@@ -6,31 +6,37 @@ public class shields_counter : MonoBehaviour
     private Text scoreText;
     private Text rewardText;
     private int currentPuntuation = 0;
-    private int nextRewardThreshold = 100;
+    private int rewardThreshold = 100;
 
-    private void Start()
+    void Start()
     {
         GameObject scoreObject = GameObject.FindGameObjectWithTag("score-ui");
         if (scoreObject != null)
         {
             scoreText = scoreObject.GetComponent<Text>();
-            scoreText.text = "";
+            if (scoreText != null) 
+            {
+                scoreText.text = "";
+            }
         }
         GameObject rewardObject = GameObject.FindGameObjectWithTag("reward-ui");
         if (rewardObject != null)
         {
             rewardText = rewardObject.GetComponent<Text>();
-            rewardText.text = "";
+            if (rewardText != null)
+            {
+                rewardText.text = "";
+            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("shield-low-value"))
+        if (other.CompareTag("low-value-shield"))
         {
             AddPoints(5);
         }
-        else if (other.CompareTag("shield-high-value"))
+        else if (other.CompareTag("high-value-shield"))
         {
             AddPoints(10);
         }
@@ -45,12 +51,18 @@ public class shields_counter : MonoBehaviour
 
     private void CheckReward()
     {
-        if (currentPuntuation >= nextRewardThreshold)
+        if (currentPuntuation >= rewardThreshold)
         {
-            nextRewardThreshold += 100;
+            rewardThreshold += 100;
             if (rewardText != null)
             {
-                rewardText.text = "¡Recompensa obtenida!";
+                rewardText.text = "¡Reward obtained!";
+            }
+        } 
+        else
+        {
+            {
+                rewardText.text = "";
             }
         }
     }

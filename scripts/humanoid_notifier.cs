@@ -8,18 +8,28 @@ public class humanoid_notifier : MonoBehaviour
     public static event CollisionAction OnCubeCollidedHumanoidRed;
     public static event CollisionAction OnCubeCollidedHumanoidGreen;
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("cube"))
         {
-            if (gameObject.CompareTag("humanoid-red"))
+            if (IsRedHumanoid())
             {
                 OnCubeCollidedHumanoidRed?.Invoke();
             }
-            else if (gameObject.CompareTag("humanoid-green"))
+            else if (IsGreenHumanoid())
             {
                 OnCubeCollidedHumanoidGreen?.Invoke();
             }
         }
+    }
+
+    private bool IsRedHumanoid()
+    {
+        return gameObject.CompareTag("red-humanoid");
+    }
+
+    private bool IsGreenHumanoid()
+    {
+        return gameObject.CompareTag("green-humanoid");
     }
 }

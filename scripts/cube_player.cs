@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class cube_script : MonoBehaviour
+public class cube_player : MonoBehaviour
 {
     private Rigidbody rigibody;
     private Vector3 direction;
+    private float speed = 1f;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class cube_script : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigibody.linearVelocity = direction * 5;
+        rigibody.linearVelocity = direction * speed;
     }
 
     private void UpdateDirection()
